@@ -18,12 +18,12 @@ var todos = []todo{
 	{ID: "3", Item: "Go to college", Completed: false},
 }
 
-func getTodods(context *gin.Context) {
+func getTodos(context *gin.Context) {
 	context.IndentedJSON(http.StatusOK, todos)
 }
 
 func main() {
 	router := gin.Default()
-	router.GET("/todos")
+	router.GET("/todos", getTodos)
 	router.Run("localhost:9090")
 }
