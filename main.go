@@ -19,10 +19,6 @@ var todos = []todo{
 	{ID: "3", Item: "Go to college", Completed: false},
 }
 
-func getTodos(context *gin.Context) {
-	context.IndentedJSON(http.StatusOK, todos)
-}
-
 func addTodo(context *gin.Context) {
 	var newTodo todo
 
@@ -42,6 +38,10 @@ func getTodoById(id string) (*todo, error) {
 		}
 	}
 	return nil, errors.New("todo not found")
+}
+
+func getTodos(context *gin.Context) {
+	context.IndentedJSON(http.StatusOK, todos)
 }
 
 func getTodo(context *gin.Context) {
